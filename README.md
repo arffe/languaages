@@ -1,3 +1,3 @@
-tutorials / experiments with various languages
+tutorials and experiments with various languages
 directories
 js javascript
