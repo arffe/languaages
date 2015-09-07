@@ -1,3 +1,6 @@
 #first python
-print ("Hello World")
+def main ():
+    print ("Hello World")
+main
+
 
