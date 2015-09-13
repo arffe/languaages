@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #first python
 
 import calendar
