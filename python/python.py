@@ -1,12 +1,77 @@
 #first python
 
+from datetime import time
+from datetime import date
+from datetime import datetime
+
 def main():
-    print "** START **"
+    today=datetime.now()
+    wd = date.weekday(today)
+    days =["Monday","Tuesday","Wedsday","Thursday","Friday","Satday","Sunday"]
+    print "today is day number %d " % wd
+    print "which is a " + days[wd]
+    
+    
+if __name__ == "__main__":
+    main()
+
+
+    
+'''
+
+print "START"
+    today = date.today()
+    print "Today's date is: ", today
+    print "Date components: ", today.day, today.month, today.year
+    print "weekday: ", today.weekday()
+    dayandtime = datetime.now()
+    print "date and time is: ", dayandtime
+    print "date and time is: ", datetime.now()
+    t = datetime.time(datetime.now())
+    print "current time is: ", t
+    #print datetime.time()
+    
+class myClass():
+    def method1(self):
+        print "myClass method1"
+    def method2(self, someString):
+        print "myClass method2: " + someString
+
+class anotherClass(myClass):
+    def method2(self):
+        print "another Class method2"
+    def method1(self):
+        myClass.method1(self);
+        print "another Class method1"
+
+  
+print "HELLO"
+def main():
+  print "** START **"
+  c = myClass()
+  c.method1()
+  c.method2("this is a string")
+  c2 = anotherClass()
+  c2.method1()
+  c2.method2()
 
 days =["Mon","Tues","Weds","Thurs","Fri","Sat","Sun"]
-print days[3], days[4]
+for x, y in enumerate(days):
+    print x, y
 
-'''
+
+
+x = 0
+for x in range (5,10):
+    #if (x==7):break
+    if (x % 2 ==0):continue
+    print x
+
+
+days =["Mon","Tues","Weds","Thurs","Fri","Sat","Sun"]
+for d in days:
+    print d
+
 x = 0
 for x in range (5,10):
     print x
