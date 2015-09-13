@@ -1,23 +1,73 @@
 #first python
 
-from datetime import time
-from datetime import date
-from datetime import datetime
+import calendar
+
+c = calendar.TextCalendar(calendar.MONDAY)
+#str = c.formatmonth(2015, 9 ,0, 0)
+#print str
+
+#ch = calendar.HTMLCalendar(calendar.MONDAY)
+#str = ch.formatmonth(2015, 9)
+#print str
+
+#for i in c.itermonthdays(2015, 9):
+#    print i
+
+print "MONTHS"
+for name in calendar.month_name:
+    print name
+print "DAYS"
+for day in calendar.day_name:
+    print day
+'''
+
 
 def main():
-    today=datetime.now()
-    wd = date.weekday(today)
-    days =["Monday","Tuesday","Wedsday","Thursday","Friday","Satday","Sunday"]
-    print "today is day number %d " % wd
-    print "which is a " + days[wd]
-    
-    
+    #print timedelta(days=365, hours=5, minutes=1)
+    print "today is: " + str(datetime.now())
+    print "one year from now it will be " + str(datetime.now() + timedelta(days=365))
+
 if __name__ == "__main__":
     main()
 
+from datetime import time
+from datetime import date
+from datetime import datetime
+from datetime import timedelta
 
+#print timedelta(days=365, hours=5, minutes=1)
+print "today is: " + str(datetime.now())
+print "one year from now it will be " + str(datetime.now() + timedelta(days=365))
+
+
+t = datetime.now() - timedelta(weeks=1)
+s = t.strftime("%Y, %A, %B, %d, %H:%M")
+print "One week ago it was: ", s
+
+    #formstting date and time
+    now=datetime.now()
+    print now.strftime("%Y")
+    print now.strftime("%A")
+    print now.strftime("%B")
+
+    print now.strftime("%y")
+    print now.strftime("%a")
+    print now.strftime("%b")
     
-'''
+    print now.strftime("%A, %d %B, %Y")
+
+    print now.strftime("%c")
+
+    print now.strftime("%I, %M %S, %p")
+    print now.strftime("%H:%M")
+    
+today=datetime.now()
+    print today
+    wd = date.weekday(today)
+    print wd
+    days =["Monday","Tuesday","Wedsday","Thursday","Friday","Satday","Sunday"]
+    print "today is day number %d " %wd
+    print "which is a " + days[wd]
 
 print "START"
     today = date.today()
