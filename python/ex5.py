@@ -1,4 +1,7 @@
-# more variable
+# more variables 
+# %s - string
+# %d - signed decimal integer
+#
 name = "Chris"
 age = 21 # a lie
 height = 73 # inches
