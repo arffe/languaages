@@ -38,17 +38,25 @@ def main():
             if event.type==pygame.KEYDOWN:
                 if event.key==pygame.K_ESCAPE:
                     game_over=True
-
+                    
+                elif event.key==pygame.K_LEFT:
+                    turret.update_position("left",WINDOWWIDTH)
+                elif event.key==pygame.K_RIGHT:
+                    turret.update_position("right",WINDOWWIDTH)
+                elif event.key==pygame.K_SPACE:
+                    bullet=Bullet(turret.get_gun_position())
+                    bullet_sprites.add(bullet)                
+                
         if ticktock % (FPS/SPEED)==1:
             if len(live_fruit_sprites)<10:
                 live_fruit_sprites.add((Fruit(WINDOWWIDTH)))
         for sprite in bullet_sprites:
             sprite.update_position()
         
-        collision=pygame.sprite.groupcollide(live_fruit_sprites.bullet_sprites.False.True)
+        collisions=pygame.sprite.groupcollide(live_fruit_sprites,bullet_sprites,False,True)
         if collisions:
             for fruit in collisions:
-                fruit.shoot(game)
+                fruit.shot(game)
         
         surface.fill(BLACK)
         bullet_sprites.draw(surface)
