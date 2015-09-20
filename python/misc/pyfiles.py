@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #python - file access
+# lynda.com - Up and Running with Python
 
 import os
 import shutil

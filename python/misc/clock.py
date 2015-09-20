@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# from Ultimate Guide to Raspberry Pi
 import time,pygame
 pygame.init()
 theFont=pygame.font.Font(None,72)
