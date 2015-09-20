@@ -101,7 +101,8 @@ while True:
     clock.tick(30)
     # checks keypresses or window close
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+        #if event.type == pygame.QUIT: sys.exit() [original code]
+        if event.type == pygame.K_ESCAPE: sys.exit()        
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 speed = skier.turn(-1)
