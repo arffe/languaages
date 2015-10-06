@@ -1,0 +1,15 @@
+<oemsoftware-images xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.humaxtvportal.com/SWUpdate/Schemas/YouView20120220" xsi:schemaLocation="http://www.humaxtvportal.com/SWUpdate/Schemas/YouView20120220 YouViewXMLSchema.xsd" slick-uniqueid="3">
+<div>
+<a id="slick_uniqueid"/>
+</div>
+<image>
+<version>21.50.40</version>
+<required-api-version>2.9.4</required-api-version>
+<url>
+http://ota.humaxtvportal.com/release/80B0.8500/21.50.40.1?__gda__=1443980063_06237b51396ed107e942f1c33e203da5
+</url>
+<ps-version>2.9.34</ps-version>
+<pc-version>1393</pc-version>
+<mc-version>1</mc-version>
+</image>
+</oemsoftware-images>
