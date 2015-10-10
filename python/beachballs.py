@@ -11,7 +11,8 @@ class myBallClass(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.left, self.rect.top = location
         self.speed = speed
-        print "self.rect.bottom = " self.rect.bottom
+        print "self.rect.left = ", self.rect.left, \
+        "self.rect.top = ", self.rect.top
     def move(self):
         self.rect = self.rect.move(self.speed)
         if self.rect.left < 0 or self.rect.right > width:
@@ -36,9 +37,9 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-    pygame.time.delay(20)
-    screen.fill([255,255,255])
-    for ball in balls:
-        ball.move()
-        screen.blit(ball.image, ball.rect)
-    pygame.display.flip()
+#    pygame.time.delay(20)
+#    screen.fill([255,255,255])
+#    for ball in balls:
+#        ball.move()
+#        screen.blit(ball.image, ball.rect)
+#    pygame.display.flip()
