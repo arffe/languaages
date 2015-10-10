@@ -5,14 +5,18 @@
 
 import xml.dom.minidom
 def main():
-    doc = xml.dom.minidom.parse("samplexml.xml");
-    print doc.nodeName
-    print doc.firstChild.tagName
+    doc1 = xml.dom.minidom.parse("samplexml.xml");
+#    print "node = ", doc.nodeName
 
-    versions = doc.getElementsByTagName("version")
-    print "{} versions:".format(versions.length)
-    for version in versions:
-        print version.getAttribute("version")
+#    print "tag = ", doc.firstChild.tagName
+#    versions = doc.getElementsByTagName("version")
+#    print "{} versions:".format(versions.length)
+#    for i in versions:
+#        print "attrib =  ", i.getAttribute("i")
+#
+    for node in doc1.getElementsByTagName('version'):  # visit every node <bar />
+        print "version tag = ", node.toxml()
+
 
 if __name__ == "__main__":
     main();
