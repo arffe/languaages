@@ -11,6 +11,7 @@ class myBallClass(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.left, self.rect.top = location
         self.speed = speed
+        print "self.rect.bottom = " self.rect.bottom
     def move(self):
         self.rect = self.rect.move(self.speed)
         if self.rect.left < 0 or self.rect.right > width:
