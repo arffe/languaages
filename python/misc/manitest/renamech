@@ -1,0 +1,10 @@
+#!/bin/bash
+for file in *
+do
+  mv "$file" "${file/SystemID/}"
+done
+for file in *
+do
+  mv "$file" "${file/SWVersion8.4.20/}"
+done
+
