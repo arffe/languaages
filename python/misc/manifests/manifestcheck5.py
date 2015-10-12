@@ -26,9 +26,9 @@ def main():
 	    # ADD time check to throttle requests
             URL = "URL&SystemID={}&SWVersion=8.4.20&policy={}.xml".format(vnt,grp)
             with open(URL, 'rt') as f:
-                tree = ET.parse(f)
+                tree = ElementTree.parse(f)
             # ADD error checking for no file etc
-            for node in tree.iter():
+            for node in tree.iter("version"):
                 print vnt, node.tag, node.text
                 x = node.text
             if len(x) > cdslen:
