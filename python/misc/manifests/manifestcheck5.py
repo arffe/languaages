@@ -19,6 +19,7 @@ def main():
 # initialise variables
     cdslen=0
     version_table=[]
+    x = "x"
 # get versions
     for vnt in variant:
         verlist = []
@@ -28,8 +29,8 @@ def main():
             with open(URL, 'rt') as f:
                 tree = ElementTree.parse(f)
             # ADD error checking for no file etc
-            for node in tree.iter("version"):
-                print vnt, node.tag, node.text
+            for node in tree.iter("{http://www.humaxtvportal.com/SWUpdate/Schemas/YouView20120220}version"):
+                print node.tag, node.text
                 x = node.text
             if len(x) > cdslen:
 		        cdslen = len(x)
