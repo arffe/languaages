@@ -6,13 +6,13 @@ from xml.etree import ElementTree
 import time, urllib2, sys
 
 def main():
+    policy=["normal","feedbackgroup","feedbackgroup2","feedbackgroup3","feedbackgroup4","feedbackgroup5"]
 #    policy=["normal","feedbackgroup","feedbackgroup2","feedbackgroup3","feedbackgroup4","feedbackgroup5"]
-#    policy=["normal","feedbackgroup","feedbackgroup2","feedbackgroup3","feedbackgroup4","feedbackgroup5"]
-    policy=["normal"]       
+#    policy=["normal","feedbackgroup"]       
 
+    variant=["80B0.7000","84B0.7000","80B0.8500","84B0.8500","86B0.8500","87B0.8500"]
 #    variant=["80B0.7000","84B0.7000","80B0.8500","84B0.8500","86B0.8500","87B0.8500"]
-#    variant=["80B0.7000","84B0.7000","80B0.8500","84B0.8500","86B0.8500","87B0.8500"]
-    variant=["80B0.7000"]
+#    variant=["80B0.7000","87B0.8500"]
 
 # ADD warning re manifest and user confirmation check 
 # ADD swithc to onlycheck normal hosting
@@ -28,9 +28,9 @@ def main():
 	    # consider adding user agent info to identifyscript
 
             
-            url = "http://www.humaxtvportal.com/SWUpdate/CheckNewSW?SystemID={}&SWVersion=15.13.0&policy={}".format(vnt,grp) 
+#            url = "http://www.humaxtvportal.com/SWUpdate/CheckNewSW?SystemID={}&SWVersion=15.13.0&policy={}".format(vnt,grp) 
             
-#            url = "http://54.148.102.16/URL{}policy{}.xml".format(vnt,grp) 
+            url = "http://54.148.102.16/URL{}policy{}.xml".format(vnt,grp) 
 
             try: getxml = urllib2.urlopen(url)
             except urllib2.HTTPError as e:
@@ -54,16 +54,17 @@ def main():
                 if cdslen < 9:
                     cdslen = 9
             else:
-                print "tree"
+#                print "tree"
                 tree = ElementTree.parse(getxml)
-                tree.write(sys.stdout)
+#                tree.write(sys.stdout)
 #                for node in tree.iter("):
-                for node in tree.iter():
-                    print node.tag, node.text
-                    cdsversion = node.text
-                if len(cdsversion) > cdslen:
-                   cdslen = len(cdsversion)
-                version_list.append(cdsversion)
+                for node in tree.iter("version"):
+#                for node in tree.iter("{http://www.humaxtvportal.com/SWUpdate/Schemas/YouView20120220}version"):
+#                    print node.tag, node.text
+#                    cdsversion = node.text
+                    if len(node.text) > cdslen:
+                       cdslen = len(node.text)
+                    version_list.append(node.text)
         version_table.append(version_list)
 
    # print table
