@@ -28,8 +28,9 @@ def main():
 	    # consider adding user agent info to identifyscript
 
             
-            #url = "http://www.humaxtvportal.com/SWUpdate/CheckNewSW?SystemID={}Version=8.4.20&policy={}".format(vnt,grp) 
-            url = "http://52.25.101.195/URL{}policy{}.xml".format(vnt,grp) 
+            url = "http://www.humaxtvportal.com/SWUpdate/CheckNewSW?SystemID={}&SWVersion=15.13.0&policy={}".format(vnt,grp) 
+            
+#            url = "http://54.148.102.16/URL{}policy{}.xml".format(vnt,grp) 
 
             try: getxml = urllib2.urlopen(url)
             except urllib2.HTTPError as e:
@@ -53,14 +54,18 @@ def main():
                 if cdslen < 9:
                     cdslen = 9
             else:
+                print "tree"
                 tree = ElementTree.parse(getxml)
-                for node in tree.iter("version"):
+                tree.write(sys.stdout)
+#                for node in tree.iter("):
+                for node in tree.iter():
+                    print node.tag, node.text
                     cdsversion = node.text
-                if len(node.text) > cdslen:
-		            cdslen = len(node.text)
-                version_list.append(node.text)
+                if len(cdsversion) > cdslen:
+                   cdslen = len(cdsversion)
+                version_list.append(cdsversion)
         version_table.append(version_list)
-  
+
    # print table
     print "\n+----------" + ("+" + "-" * (cdslen+2)) * (len(policy)) + "+"
     print "| variant  |",
